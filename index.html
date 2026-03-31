@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <h1>Demo</h1>
-
-    <textarea id="text-input" placeholder="Type hier iets..."></textarea>
-    <div>
-        <button onclick="speech('normal')">Normal</button>
-        <button onclick="speech('excited')">Excited</button>
-        <button onclick="speech('calm')">Calm</button>
-    </div>
-
+    <form>
+        <h1>Demo</h1>
+        <textarea id="text-input" placeholder="Type hier iets..."></textarea>
+        <div>
+            <button type="button" onclick="speech('normal')">Normal speech</button>
+            <button type="button" onclick="speech('excited')">Excited speech</button>
+            <button type="button" onclick="speech('calm')">Calm speech</button>
+        </div>
+    </form>
     <script src="scripts/main.js"></script>
 </body>
 </html>
