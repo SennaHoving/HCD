@@ -14,7 +14,7 @@ Morgen is het doel om echt een weer site na te bootsen, en als het lukt daar een
 De eerste versie met de verschillende tonen in de speech uitgewerkt, waarbij ik nu een soort nagemaakte exised en calme stem heb. Ik merk het verschill nu wel maar ben maar het is niet super duidelijk. 
 Vandaag eerste test gehad met Berend, een eigenlijk ging het best wel goed. De uitspraken waren zeker anders van elkaar, zeker de calmen vond Berend wel opvallend. Dus ik denk aan de hand hiervan vooral nog naar het concept kijken, hoe kan ik hiermee de indruk op een passende manier nabootsen. En ik kan ook nog wel de spraak verder uitwerken, maar goede richting. 
 
-![Demo](/screenshots/week1)
+![Demo](/screenshots/week1.png)
 
 Verder algemene bevindingen. Ik kon me opzich echt wel iets voorstellen hoe Berend zijn computer gebruikte met de screen reader en tab, het ging misschien iets sneller en onhandiger dan ik had verwacht. Maar het belangrijkste waar ik nog niet heel bewust van was is dat Berend echt maar een ding tegelijk kan doen op een website, dus de focus light op een sectie / element, alles eromheen valt weg. Je kan niks aan de zijkant van het scherm neerzetten, acties zijn lastig op te splitsen.
 
