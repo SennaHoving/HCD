@@ -3,3 +3,22 @@
     padding: 0; 
 }
 
+body {
+    padding: 2em; 
+}
+
+h1 {
+    margin: 1em 0; 
+}
+
+.item {
+    display: flex; 
+    flex-direction: column; 
+    width: 20em;
+}
+
+.item img {
+    width: 15em; 
+    height: 15em;
+}
+

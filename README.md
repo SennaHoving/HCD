@@ -18,7 +18,7 @@ Vandaag eerste test gehad met Berend, een eigenlijk ging het best wel goed. De u
 
 Verder algemene bevindingen. Ik kon me opzich echt wel iets voorstellen hoe Berend zijn computer gebruikte met de screen reader en tab, het ging misschien iets sneller en onhandiger dan ik had verwacht. Maar het belangrijkste waar ik nog niet heel bewust van was is dat Berend echt maar een ding tegelijk kan doen op een website, dus de focus light op een sectie / element, alles eromheen valt weg. Je kan niks aan de zijkant van het scherm neerzetten, acties zijn lastig op te splitsen.
 
-En verder zijn specifieke dingen zoals datums latig te begrijpen, en minimalistich is soms makkelijker te begrijpen. 
+En verder zijn specifieke dingen zoals datums latig te begrijpen, en minimalistich is soms makkelijker te begrijpen. Ook zou ik nog kunnen kijken om er een soort menu / settings aan te koppelen, waarmee je bijvoorbeeld de toon kan instellen.
 
 Ik denk om nu verder te gaan, kijken naar hoe ik de spraak nog wat verder kan verbeteren. Maar ook vooral er een passend concept bij verzinnen waarbij de spraak verschillen ook echt een verschil maken. 
 
@@ -28,8 +28,16 @@ Vooral kijken hoe het in een groter stuck content / text werkt? Iets zoals een s
 En het blijft ook belangrijk om critisch te kijken naar wat Berend vindt, omdat het misschien voor zijn gevoel al wel goed werkt, maar hij gewoon niet beter weet. 
 
 
+
+
 ## Bronnen 
 [ssml](https://medium.com/@brijeshrn/ssml-the-practical-standard-for-controlling-speech-synthesis-c52940314ffa)
 [ssml van microsoft](https://learn.microsoft.com/nl-nl/azure/ai-services/speech-service/speech-synthesis-markup-voice)
 [how vissually impaired people navigate the web](https://uxdesign.cc/how-visually-impaired-people-navigate-the-web-7f9eab9d9c37) 
+
+
+
+
+
+
 

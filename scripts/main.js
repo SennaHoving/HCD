@@ -1,7 +1,15 @@
-const text = document.getElementById("text-input") || "Welkom tot deze website"; 
+const elements = document.querySelectorAll("[data-speech]");
 
-function speech(emotie) {
-    const utterance = new SpeechSynthesisUtterance(text.value); 
+elements.forEach(el => {
+  el.addEventListener("focus", () => {
+    // Read aloud the text with the specified tone
+    speech(el.dataset.emotie, el.textContent);
+  });
+});
+
+function speech(emotie, text) {
+    const speak = text || window.text?.value || "";
+    const utterance = new SpeechSynthesisUtterance(speak);  
 
     switch(emotie) {
         case "normal": 
@@ -19,6 +27,5 @@ function speech(emotie) {
         break; 
     }
 
-    console.log(text.value)
     speechSynthesis.speak(utterance);
 }
