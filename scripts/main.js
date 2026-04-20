@@ -1,7 +1,30 @@
 const textarea = document.getElementById("textarea");
 const button = document.getElementById("button");
+const select = document.getElementById("select");
 
 const apiKey = "";
+
+async function loadVoices() {
+    const response = await fetch (
+        `https://texttospeech.googleapis.com/v1/voices?key=${apiKey}`
+    );
+
+    const data = await response.json()
+
+    data.voices.forEach(e => {
+        if (e.languageCodes.includes("en-US")) {
+            console.log(e);   
+            const option = document.createElement("option");
+            option.value = e.name;
+            option.textContent = e.name;
+            voiceSelect.appendChild(option);
+        }
+    })
+
+    select.value
+}
+
+loadVoices();
 
 async function speak() {
     const request = {
@@ -26,25 +49,6 @@ async function speak() {
 
     const audio = new Audio("data:audio/mp3;base64," + audioContent);
     audio.play();
-
-    //List 
-    const textToSpeech = require('@google-cloud/text-to-speech');
-
-    const client = new textToSpeech.TextToSpeechClient();
-
-    const [result] = await client.listVoices({});
-    const voices = result.voices;
-
-    console.log('Voices:');
-    voices.forEach(voice => {
-        console.log(`Name: ${voice.name}`);
-        console.log(`  SSML Voice Gender: ${voice.ssmlGender}`);
-        console.log(`  Natural Sample Rate Hertz: ${voice.naturalSampleRateHertz}`);
-        console.log('  Supported languages:');
-        voice.languageCodes.forEach(languageCode => {
-            console.log(`    ${languageCode}`);
-        });
-    });
 }
 
 button.addEventListener("click", () => {
