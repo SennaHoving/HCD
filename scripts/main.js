@@ -1,54 +1,9 @@
-// const elements = document.querySelectorAll("[data-speech]");
-// const pitchElement = document.getElementById("pitch")
-// const rateElement = document.getElementById("rate")
-
-// elements.forEach(el => {
-//   el.addEventListener("focus", () => {
-//     // Read aloud the text with the specified tone
-//     speech(el.dataset.emotie, el.textContent);
-//   });
-// });
-
-// document.querySelectorAll(".read-btn").forEach(button => {
-//     button.addEventListener("click", () => {
-//         const textElement = button.previousElementSibling;
-//         const emotie = textElement.dataset.emotie;
-//         const text = textElement.textContent;
-//         speech(emotie, text);
-//     });
-// });
-
-// function speech(emotie, text) {
-//     const speak = text || window.text?.value || "";
-//     const utterance = new SpeechSynthesisUtterance(speak);  
-
-//     switch(emotie) {
-//         case "normal": 
-//             utterance.pitch = pitchElement.value;
-//             utterance.rate = rateElement.value;
-//         break;  
-
-//         case "excited": //Hoog
-//             utterance.pitch = 2; 
-//             utterance.rate = 1.5;
-//         break; 
-
-//         case "calm": //Laag
-//             utterance.pitch = 0.3; 
-//             utterance.rate = 0.8;
-//         break; 
-//     }
-
-//     speechSynthesis.speak(utterance);
-// }
-
-
 const textarea = document.getElementById("textarea");
 const button = document.getElementById("button");
 
 const apiKey = "";
 
-button.addEventListener("click", async () => {
+async function speak() {
     const request = {
         input: {text: textarea.value},
         voice: {languageCode: 'en-US', ssmlGender: 'NEUTRAL'},
@@ -62,7 +17,7 @@ button.addEventListener("click", async () => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(requestBody)
+            body: JSON.stringify(request)
         }   
     );
 
@@ -71,4 +26,27 @@ button.addEventListener("click", async () => {
 
     const audio = new Audio("data:audio/mp3;base64," + audioContent);
     audio.play();
+
+    //List 
+    const textToSpeech = require('@google-cloud/text-to-speech');
+
+    const client = new textToSpeech.TextToSpeechClient();
+
+    const [result] = await client.listVoices({});
+    const voices = result.voices;
+
+    console.log('Voices:');
+    voices.forEach(voice => {
+        console.log(`Name: ${voice.name}`);
+        console.log(`  SSML Voice Gender: ${voice.ssmlGender}`);
+        console.log(`  Natural Sample Rate Hertz: ${voice.naturalSampleRateHertz}`);
+        console.log('  Supported languages:');
+        voice.languageCodes.forEach(languageCode => {
+            console.log(`    ${languageCode}`);
+        });
+    });
+}
+
+button.addEventListener("click", () => {
+    speak();
 })
