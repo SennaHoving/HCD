@@ -27,14 +27,44 @@ Vooral kijken hoe het in een groter stuck content / text werkt? Iets zoals een s
 
 En het blijft ook belangrijk om critisch te kijken naar wat Berend vindt, omdat het misschien voor zijn gevoel al wel goed werkt, maar hij gewoon niet beter weet. 
 
+## Test 2 (07/04)
+Schreenreaders / tts via de browser is stuk minder snel dan wat Berend als eigen screenreader heeft. 
 
+![Demo week 2](/screenshots/week2.png)
+
+### In welke context zou je de nuance het meest missen? 
+Vooral bij blogs, dus de opinie van mensen. Dit is alleen lastig omdat dit onder mensen altijd verschild en niet algemeen is. 
+
+Maar opzich is het bij alles handig, misschien is het beter om de kijken naar waarmee dit juist het makkelijkste is om toe te passen.
+
+stemmen instellen bij whatsapp, dat je bijvoorbeeld instellingen / opties heb bij verschillende chats, en hoe die ze voorleest, dat je daar zelf per persoon kan instellen hoe ze normaal klinken. 
+
+Dus eerder een soort settings over op welke manier het wordt uitgesproken, inplaats van verschillende tonen voor specifieke elementen. 
+
+### Technisch
+En de browser tts gaat nu tegelijkertijd met Berends zijn eigen screenreader, dus een button om de text af te spelen zij beter werken. 
+
+contrast: 
+- Dikke randen 
+- Dikke letters
+- Kleuren maken niet uit, alleen licht op donker en andersom
+
+## Feedback
+Zoek het extreme op
+markt verkoper of super high end / duur / posh
+Als je een winkel binnen loop krijg je ook meteen een indruk, maak dat na op het web
+bone conduction headphones
+
+## 20/04 
+Nieuw concept, een soort settings / quick select menu waarmee je voor een groote text / blog de toon kan instellen, met een paar voor geselecteerde tonen of een custom. 
 
 
 ## Bronnen 
 [ssml](https://medium.com/@brijeshrn/ssml-the-practical-standard-for-controlling-speech-synthesis-c52940314ffa)
 [ssml van microsoft](https://learn.microsoft.com/nl-nl/azure/ai-services/speech-service/speech-synthesis-markup-voice)
 [how vissually impaired people navigate the web](https://uxdesign.cc/how-visually-impaired-people-navigate-the-web-7f9eab9d9c37) 
-
+[pass text thru google cloud text to speech api](https://docs.cloud.google.com/text-to-speech/docs/samples/tts-synthesize-text?hl=en#tts_synthesize_text-java)
+[fix google cloud api](https://chatgpt.com/share/69e60d5e-7334-83eb-a7c2-152395675d09)
 
 
 
