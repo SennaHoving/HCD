@@ -2,7 +2,7 @@ const textarea = document.getElementById("textarea");
 const button = document.getElementById("button");
 const select = document.getElementById("select");
 
-const apiKey = "";
+const apiKey = "AIzaSyBfHfzVGeHHXtSByaUiBNgB9owRtBnn4Ik";
 
 async function loadVoices() {
     const response = await fetch (
@@ -12,24 +12,33 @@ async function loadVoices() {
     const data = await response.json()
 
     data.voices.forEach(e => {
-        if (e.languageCodes.includes("en-US")) {
-            console.log(e);   
-            const option = document.createElement("option");
-            option.value = e.name;
-            option.textContent = e.name;
-            voiceSelect.appendChild(option);
-        }
-    })
+        if (!e.languageCodes.includes("en-US")) return;
+        if (!/^[a-z]{2}-[A-Z]{2}-/.test(e.name)) return;
 
-    select.value
+        console.log(e);   
+        const option = document.createElement("option");
+
+        option.value = JSON.stringify({
+            name: e.name,
+            lang: e.languageCodes[0]
+        });
+
+        option.textContent = `${e.name} (${e.ssmlGender})`;
+        select.appendChild(option);
+    })
 }
 
 loadVoices();
 
 async function speak() {
+    const selected = JSON.parse(select.value);
+
     const request = {
         input: {text: textarea.value},
-        voice: {languageCode: 'en-US', ssmlGender: 'NEUTRAL'},
+        voice: {
+            name: selected.name,
+            languageCode: selected.lang
+        },
         audioConfig: {audioEncoding: 'MP3'},
     }
 
@@ -45,6 +54,14 @@ async function speak() {
     );
 
     const data = await response.json(); 
+
+    if (!response.ok) {
+        const error = await response.json();
+        console.error("TTS ERROR:", error);
+        alert(error.error.message);
+        return;
+    }
+
     const audioContent = data.audioContent
 
     const audio = new Audio("data:audio/mp3;base64," + audioContent);
