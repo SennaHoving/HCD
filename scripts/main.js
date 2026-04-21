@@ -5,13 +5,13 @@ const text = document.getElementById("text").textContent;
 
 let selectedVoice = null;
 
-const apiKey = "";
+const apiKey = "AIzaSyBfHfzVGeHHXtSByaUiBNgB9owRtBnn4Ik";
 
 const voiceIcons = {
-    "en-US-Polyglot-1": "🌐",
-    "en-US-Neural2-G": "🎤",
-    "en-US-Chirp-HD-D": "🎶",
-    "en-US-Chirp-HD-F": "✨"
+    "en-US-Polyglot-1": "✨",
+    "en-US-Neural2-G": "🌐",
+    "en-US-Chirp-HD-D": "👨",
+    "en-US-Chirp-HD-F": "👩"
 };
 
 async function loadVoices() {
@@ -35,20 +35,34 @@ async function loadVoices() {
         const div = document.createElement("div");
         div.className = "voice-item";
         div.dataset.name = e.name;
+        div.setAttribute("tabindex", "0");
         div.dataset.lang = e.languageCodes[0];
 
         const icon = voiceIcons[e.name] || "🔊";
         div.textContent = `${icon} ${e.name}`;
 
-        div.addEventListener("click", () => {
-            document.querySelectorAll(".voice-item").forEach(i => i.classList.remove("active"));
+        function selectVoice(div) {
+            document.querySelectorAll(".voice-item")
+                .forEach(i => i.classList.remove("active"));
+
             div.classList.add("active");
 
             selectedVoice = {
                 name: div.dataset.name,
                 lang: div.dataset.lang
             };
+        }
+
+        div.addEventListener("click", () => {
+            selectVoice(div);
         });
+
+        div.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                selectVoice(div);
+            }
+        });       
 
         select.appendChild(div);
     });

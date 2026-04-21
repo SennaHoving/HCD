@@ -59,6 +59,7 @@ bone conduction headphones
 Nieuw concept, een soort settings / quick select menu waarmee je voor een groote text / blog de toon kan instellen, met een paar voor geselecteerde tonen of een custom. 
 
 gekeken naar microsoft ssml, werkte niet, toen google cloud text to speech api wel. 
+idee: met verschillende personen voor een group chat
 
 ## Bronnen 
 [ssml](https://medium.com/@brijeshrn/ssml-the-practical-standard-for-controlling-speech-synthesis-c52940314ffa)

@@ -58,3 +58,63 @@ h1 {
     color: white; 
     border: none; 
 }
+
+.chat-container {
+    display: flex;
+    height: 500px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.chat-area {
+    flex: 1;
+    padding: 15px;
+    background: #fafafa;
+    overflow-y: auto;
+}
+
+.message {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+}
+
+.message .avatar {
+    font-size: 28px;
+}
+
+.message .text {
+    background: white;
+    padding: 10px 14px;
+    border-radius: 12px;
+    max-width: 70%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.settings-panel {
+    width: 250px;
+    background: #fff;
+    padding: 15px;
+    border-left: 1px solid #eee;
+}
+
+.voice-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.voice-item {
+    padding: 8px 10px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.voice-item.active {
+    border-color: #007bff;
+    background: #e8f1ff;
+}
