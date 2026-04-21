@@ -25,3 +25,36 @@ h1 {
     height: 15em;
 }
 
+#select {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    flex-direction: row; 
+}
+
+.voice-item {
+    padding: 10px 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.2s;
+}
+
+.voice-item:hover {
+    border-color: #888;
+}
+
+.voice-item.active {
+    border-color: #007bff;
+    background: #e8f1ff;
+    font-weight: bold;
+}
+
+#button {
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white; 
+    border: none; 
+}
