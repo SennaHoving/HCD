@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root {
+    --color-background: rgb(20, 20, 20); 
+    --color-primary: white; 
+}
+
 * {
     margin: 0; 
     padding: 0; 
@@ -7,7 +12,9 @@
 
 body {
     padding: 2em; 
-    font-family: 'Noto Sans'
+    font-family: 'Noto Sans';
+    background-color: var(--color-background);
+    color: var(--color-primary);  
 }
 
 h1 {
@@ -124,4 +131,60 @@ body p {
 .voice-item.active {
     border-color: #007bff;
     background: #e8f1ff;
+}
+
+/* Group Chat */ 
+body:has(.group-chat) {
+    padding: 0; 
+}
+
+.group-chat {
+    margin-top: 1em;
+}
+
+.group-chat div {
+    display: flex; 
+    flex-direction: column; 
+    gap: 1em;
+}
+
+.group-chat div .text-bubble:nth-child(4n) {
+    margin-left: auto; 
+    margin-right: 7em; 
+
+    div {
+        right: 0; 
+        transform: translateX(140%); 
+    }
+}
+
+.text-bubble {
+    margin-left: 7em;
+
+    position: relative;  
+
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.5em; 
+    align-items: flex-start;
+}
+
+.text-bubble div {
+    border-radius: 999px; 
+    width: 4em; 
+    height: 4em; 
+    background-color: blue; 
+
+    position: absolute; 
+    top: 0; 
+    transform: translateX(-140%); 
+}
+
+.text-bubble p {
+    font-size: 1.5em; 
+    margin: 0; 
+
+    background-color: rgb(130, 130, 130); 
+    border-radius: 0.75em; 
+    padding: 0.5em 0.5em;
 }
