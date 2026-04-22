@@ -4,13 +4,18 @@ let selectedVoice = null;
 
 const apiKey = "AIzaSyBfHfzVGeHHXtSByaUiBNgB9owRtBnn4Ik";
 
-async function speak(text) {
+const voices = {
+    "1": { languageCode: "nl-NL", name: "nl-NL-Standard-F" },
+    "2": { languageCode: "nl-NL", name: "nl-NL-Standard-G" },
+    "3": { languageCode: "nl-NL", name: "nl-NL-Wavenet-F" }
+};
+
+async function speak(text, person) {
+    let voice = voices[person] || voices["1"]; 
+
     const request = {
         input: { text: text },
-        "voice": {
-            "languageCode": "en-US",
-            "name": "en-US-Neural2-C"
-        },
+        voice,
         audioConfig: { audioEncoding: "MP3" }
     };
 
@@ -39,7 +44,6 @@ async function speak(text) {
 
 buttons.forEach(el => {
     el.addEventListener("click", () => {
-        console.log(el.textContent)
-        speak(el.textContent); 
+        speak(el.textContent, el.className); 
     })
 })
