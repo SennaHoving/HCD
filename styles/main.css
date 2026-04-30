@@ -284,3 +284,42 @@ body:has(.private-chat) {
         transform: translateX(140%); 
     }
 }
+
+/* Chats index */ 
+body:has(.chats) {
+    padding: 0; 
+}
+
+body:has(.chats) h2 {
+    margin: 1em 0; 
+}
+
+.chats {
+    display: flex;
+    flex-direction: column; 
+
+}
+
+.chats a {
+    padding: 1em; 
+    border-top: 4px solid white;
+    border-bottom: 4px solid white;
+    width: 100%; 
+
+    color: white; 
+    text-decoration: none;
+    font-size: 2em;
+
+    display: flex; 
+    flex-direction: row; 
+    gap: 1em; 
+    align-items: center; 
+}
+
+.chats a div {
+    height: 2em;
+    width: 2em; 
+
+    background-color: grey;
+    border-radius: 999px; 
+}
