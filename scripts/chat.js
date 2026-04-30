@@ -7,7 +7,7 @@ const apiKey = "AIzaSyBfHfzVGeHHXtSByaUiBNgB9owRtBnn4Ik";
 const voices = {
     "1": { languageCode: "nl-NL", name: "nl-NL-Standard-F" },
     "2": { languageCode: "nl-NL", name: "nl-NL-Standard-G" },
-    "3": { languageCode: "nl-NL", name: "nl-NL-Wavenet-F" }
+    "3": { languageCode: "nl-NL", name: "nl-NL-Chirp3-HD-Achernar" }
 };
 
 async function speak(text, person) {

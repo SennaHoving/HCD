@@ -14,7 +14,8 @@ body {
     padding: 2em; 
     font-family: 'Noto Sans';
     background-color: var(--color-background);
-    color: var(--color-primary);  
+    color: var(--color-primary); 
+    overflow-x: hidden;  
 }
 
 h1 {
@@ -138,6 +139,26 @@ body:has(.group-chat) {
     padding: 0; 
 }
 
+body nav {
+    width: 100%; 
+
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap: 3em;
+    padding: 1em 0 2em 1em;
+}
+
+body nav a {
+    color: white; 
+
+    font-size: 1.5em;
+}
+
+body nav h2 { 
+    font-weight: 400; 
+}
+
 .group-chat {
     margin-top: 1em;
 }
@@ -146,6 +167,35 @@ body:has(.group-chat) {
     display: flex; 
     flex-direction: column; 
     gap: 1em;
+}
+
+.group-chat > div:nth-of-type(2) input {
+    width: 90%; 
+    height: 2em; 
+    background-color: rgb(255, 255, 255);
+    margin-left: 1em;
+    border-radius: 999px;
+    padding-left: 1em;
+    font-size: 1.5em;
+}
+
+.group-chat > div:nth-of-type(2) {
+    position: absolute; 
+    bottom: 1em; 
+    right: 1em; 
+    width: 100%;
+     
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.group-chat > div:nth-of-type(2) div {
+    height: 52px; 
+    width: 52px;
+    border-radius: 999px; 
+
+    background-color: grey;
 }
 
 .group-chat div .text-bubble:nth-child(4n) {
@@ -178,6 +228,18 @@ body:has(.group-chat) {
     position: absolute; 
     top: 0; 
     transform: translateX(-140%); 
+}
+
+.text-bubble div[class="1"] {
+    background-color: red;
+}
+
+.text-bubble div[class="2"] {
+    background-color: blue;
+}
+
+.text-bubble div[class="3"] {
+    background-color: green;
 }
 
 .text-bubble button {
