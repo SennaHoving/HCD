@@ -61,6 +61,15 @@ Nieuw concept, een soort settings / quick select menu waarmee je voor een groote
 gekeken naar microsoft ssml, werkte niet, toen google cloud text to speech api wel. 
 idee: met verschillende personen voor een group chat
 
+
+
+## Voorgang 07/05 
+Concept is goed
+Prototype beter uitwerken. Dus text uitspreken op tab in plaats van enter, prototype moet realistischer werken / beter kunnen inleven. 
+spraak kunnen instellen voor de berichten die je kan sturen
+readme week 3 en 4 ff fixen
+reflectie design principles: study situation, ignore conventions, prioritise identity, add nonsense.
+
 ## Bronnen 
 [ssml](https://medium.com/@brijeshrn/ssml-the-practical-standard-for-controlling-speech-synthesis-c52940314ffa)
 [ssml van microsoft](https://learn.microsoft.com/nl-nl/azure/ai-services/speech-service/speech-synthesis-markup-voice)
