@@ -82,11 +82,20 @@
         <div>
             <input id="text" type="text">
             <form id="voiceSettings">
-                <input type="checkbox">
+                <input type="checkbox" tabindex="0">
                 <div>
-                    <input type="radio" value="v3" name="setting" checked>🙂</input >
-                    <input type="radio" value="v4" name="setting">🤩</input >
-                    <input type="radio" value="v5" name="setting">😌</input >
+                    <label>
+                        <input type="radio" value="v3" name="setting" checked>
+                        🙂
+                    </label>
+                    <label>
+                        <input type="radio" value="v4" name="setting">
+                        🤩
+                    </label>
+                    <label>
+                        <input type="radio" value="v5" name="setting">
+                        😌
+                    </label>
                 </div>
             </form>
             <button id="sendButton">></button>

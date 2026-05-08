@@ -102,3 +102,17 @@ sendButton.addEventListener("click", () => {
 
     console.log(text.value);
 })
+
+//Focus tab when opening settings display 
+const toggle = document.querySelector("#voiceSettings input[type='checkbox']");
+const panel = document.querySelector("#voiceSettings > div");
+
+panel.addEventListener("focusout", (e) => {
+    setTimeout(() => {
+        const stillInside = panel.contains(document.activeElement);
+
+        if (!stillInside) {
+            toggle.checked = false;
+        }
+    }, 0);
+});

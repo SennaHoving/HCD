@@ -214,6 +214,11 @@ body nav h2 {
     border-radius: 999px; 
     border: none; 
 
+    background-image: url(../assets/send-symbol.png);
+    background-size: 32px 32px;
+    background-position: center;
+    background-repeat: no-repeat;
+
     background-color: grey;
 }
 
@@ -225,6 +230,13 @@ body nav h2 {
     border-radius: 999px; 
     border: none; 
 
+    /* background-color: grey; */
+    background-image: url(../assets/slider-settings.png);
+    fill: white; 
+    background-size: 32px 32px;
+    background-position: center;
+    background-repeat: no-repeat;
+
     background-color: grey;
 }
 
@@ -233,7 +245,7 @@ body nav h2 {
     width: 100%;
     margin: 0;
 
-    opacity: 0;
+    appearance: none;
 }
 
 #voiceSettings > div {
