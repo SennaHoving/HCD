@@ -160,17 +160,45 @@ body nav h2 {
 }
 
 .group-chat {
-    margin-top: 1em;
+    /* display: flex;
+    flex-direction: column; 
+    gap: 1em; 
+    justify-content: space-between; */
+
+    /* height: 100%;
+    overflow: hidden;   */
+    overflow: hidden;
 }
 
-.group-chat div {
+.group-chat > div:first-of-type {
     display: flex; 
     flex-direction: column; 
     gap: 1em;
+
+    padding-bottom: 7em; 
 }
 
-.group-chat > div:nth-of-type(2) input {
-    width: 90%; 
+/* .group-chat > div:first-of-type {
+    overflow-y: scroll; 
+} */
+
+.group-chat > div:nth-of-type(2) {
+    position: fixed; 
+    bottom: 0; 
+    right: 1em; 
+    width: 100%;
+    padding: 1em 0; 
+     
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1em;
+
+    background-color:rgb(20, 20, 20);
+}
+
+.group-chat > div:nth-of-type(2) > input:first-of-type {
+    width: 100%; 
     height: 2em; 
     background-color: rgb(255, 255, 255);
     margin-left: 1em;
@@ -179,26 +207,64 @@ body nav h2 {
     font-size: 1.5em;
 }
 
-.group-chat > div:nth-of-type(2) {
-    position: absolute; 
-    bottom: 1em; 
-    right: 1em; 
-    width: 100%;
-     
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.group-chat > div:nth-of-type(2) div {
+.group-chat > div:nth-of-type(2) > button, .group-chat > div:nth-of-type(2) > div {
     height: 52px; 
     width: 52px;
+    aspect-ratio: 1/1;
     border-radius: 999px; 
+    border: none; 
 
     background-color: grey;
 }
 
-.group-chat div .text-bubble:nth-child(4n) {
+#voiceSettings {
+    position: relative; 
+    height: 52px; 
+    width: 52px;
+    aspect-ratio: 1/1;
+    border-radius: 999px; 
+    border: none; 
+
+    background-color: grey;
+}
+
+#voiceSettings > input {
+    height: 100%; 
+    width: 100%;
+    margin: 0;
+
+    opacity: 0;
+}
+
+#voiceSettings > div {
+    position: absolute; 
+    bottom: 0; 
+    right: 0; 
+    transform: translateY(-60%); 
+    /* transform: translate(-40%, -100%);  */
+    font-size: 2em; 
+
+    display: flex;
+    flex-direction: row; 
+    gap: 1em;
+
+    display: none;
+
+    padding: 1em; 
+    background-color: white;
+    border-radius: 1em;
+}
+
+#voiceSettings > div input {
+    border: none; 
+    background: none; 
+}
+
+#voiceSettings:has( > input:checked) > div {
+    display: flex; 
+}
+
+.group-chat div .text-bubble:has(div.v3), .group-chat div .text-bubble:has(div.v4), .group-chat div .text-bubble:has(div.v5) {
     margin-left: auto; 
     margin-right: 7em; 
 
@@ -230,15 +296,15 @@ body nav h2 {
     transform: translateX(-140%); 
 }
 
-.text-bubble div[class="1"] {
+.text-bubble div[class="v1"] {
     background-color: red;
 }
 
-.text-bubble div[class="2"] {
+.text-bubble div[class="v2"] {
     background-color: blue;
 }
 
-.text-bubble div[class="3"] {
+.text-bubble div[class="v3"], .text-bubble div[class="v4"], .text-bubble div[class="v5"] {
     background-color: green;
 }
 
@@ -291,7 +357,7 @@ body:has(.chats) {
 }
 
 body:has(.chats) h2 {
-    margin: 1em 0; 
+    margin: 1em 0;  
 }
 
 .chats {

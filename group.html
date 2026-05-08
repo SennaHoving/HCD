@@ -13,75 +13,83 @@
         <h2>Group chat</h2>
     </nav>
     <div class="group-chat">
-        <div>
+        <div id="chatContainer">
             <div class="text-bubble">
-                <div class="1"></div>
-                <button aria-hidden="true" tabindex="0" role="button" class="1">Yo, zijn jullie al wakker?</button>
+                <div class="v1"></div>
+                <button aria-hidden="true" tabindex="0" role="button" class="v1">Yo, zijn jullie al wakker?</button>
             </div>
 
             <div class="text-bubble">
-                <div class="2"></div>
-                <button aria-hidden="true" tabindex="0" role="button" class="2">Net pas haha. Wat is er?</button>
-                <button aria-hidden="true" tabindex="0" role="button" class="2">Had echt geen zin om op te staan</button>
+                <div class="v2"></div>
+                <button aria-hidden="true" tabindex="0" role="button" class="v2">Net pas haha. Wat is er?</button>
+                <button aria-hidden="true" tabindex="0" role="button" class="v2">Had echt geen zin om op te staan</button>
             </div>
 
             <div class="text-bubble">
-                <div class="1"></div>
-                <button aria-hidden="true" tabindex="0" role="button" class="1">Denken jullie dat het vandaag droog blijft?</button>
+                <div class="v1"></div>
+                <button aria-hidden="true" tabindex="0" role="button" class="v1">Denken jullie dat het vandaag droog blijft?</button>
             </div>
 
             <div class="text-bubble">
-                <div class="3"></div>
-                <button aria-hidden="true" tabindex="0" role="button" class="3">Ik denk het wel, maar NL kennende…</button>
+                <div class="v3"></div>
+                <button aria-hidden="true" tabindex="0" role="button" class="v3">Ik denk het wel, maar NL kennende…</button>
             </div>
 
             <div class="text-bubble">
-                <div class="2"></div>
-                <button aria-hidden="true" tabindex="0" role="button" class="2">Ik zie hier dat het pas vanavond gaat regenen</button>
-                <button aria-hidden="true" tabindex="0" role="button" class="2">Waarom eigenlijk Sam? Had je plannen?</button>
-                <button aria-hidden="true" tabindex="0" role="button" class="2">Ja, dacht misschien buiten lunchen?</button>
+                <div class="v2"></div>
+                <button aria-hidden="true" tabindex="0" role="button" class="v2">Ik zie hier dat het pas vanavond gaat regenen</button>
+                <button aria-hidden="true" tabindex="0" role="button" class="v2">Waarom eigenlijk Sam? Had je plannen?</button>
+                <button aria-hidden="true" tabindex="0" role="button" class="v2">Ja, dacht misschien buiten lunchen?</button>
             </div>
 
             <div class="text-bubble">
-                <div class="1"></div>
-                <button aria-hidden="true" tabindex="0" role="button" class="1">Klinkt goed, ik ben erbij</button>
+                <div class="v1"></div>
+                <button aria-hidden="true" tabindex="0" role="button" class="v1">Klinkt goed, ik ben erbij</button>
             </div>
 
             <div class="text-bubble">
-                <div class="2"></div>
-                <button aria-hidden="true" tabindex="0" role="button" class="2">Waar willen jullie heen?</button>
+                <div class="v2"></div>
+                <button aria-hidden="true" tabindex="0" role="button" class="v2">Waar willen jullie heen?</button>
             </div>
 
             <div class="text-bubble">
-                <div class="3"></div>
-                <button aria-hidden="true" tabindex="0" role="button" class="3">Wat dacht je van dat nieuwe tentje bij het park?</button>
+                <div class="v3"></div>
+                <button aria-hidden="true" tabindex="0" role="button" class="v3">Wat dacht je van dat nieuwe tentje bij het park?</button>
             </div>
 
             <div class="text-bubble">
-                <div class="2"></div>
-                <button aria-hidden="true" tabindex="0" role="button" class="2">Oja, goed idee! Zeg 13:00?</button>
+                <div class="v2"></div>
+                <button aria-hidden="true" tabindex="0" role="button" class="v2">Oja, goed idee! Zeg 13:00?</button>
             </div>
 
             <div class="text-bubble">
-                <div class="1"></div>
-                <button aria-hidden="true" tabindex="0" role="button" class="1">Perfect</button>
-                <button aria-hidden="true" tabindex="0" role="button" class="1">Ik moet nog even douchen maar red het wel</button>
+                <div class="v1"></div>
+                <button aria-hidden="true" tabindex="0" role="button" class="v1">Perfect</button>
+                <button aria-hidden="true" tabindex="0" role="button" class="v1">Ik moet nog even douchen maar red het wel</button>
             </div>
 
             <div class="text-bubble">
-                <div class="2"></div>
-                <button aria-hidden="true" tabindex="0" role="button" class="2">Ik kom iets later, moet nog snel wat regelen</button>
-                <button aria-hidden="true" tabindex="0" role="button" class="2">Waarschijnlijk kwartiertje ofzo</button>
+                <div class="v2"></div>
+                <button aria-hidden="true" tabindex="0" role="button" class="v2">Ik kom iets later, moet nog snel wat regelen</button>
+                <button aria-hidden="true" tabindex="0" role="button" class="v2">Waarschijnlijk kwartiertje ofzo</button>
             </div>
 
             <div class="text-bubble">
-                <div class="3"></div>
-                <button aria-hidden="true" tabindex="0" role="button" class="3">Geen stress, stuur maar als je er bent</button>
+                <div class="v3"></div>
+                <button aria-hidden="true" tabindex="0" role="button" class="v3">Geen stress, stuur maar als je er bent</button>
             </div>
         </div>
         <div>
-            <input type="text">
-            <div></div>
+            <input id="text" type="text">
+            <form id="voiceSettings">
+                <input type="checkbox">
+                <div>
+                    <input type="radio" value="v3" name="setting" checked>🙂</input >
+                    <input type="radio" value="v4" name="setting">🤩</input >
+                    <input type="radio" value="v5" name="setting">😌</input >
+                </div>
+            </form>
+            <button id="sendButton">></button>
         </div>
     </div>
 

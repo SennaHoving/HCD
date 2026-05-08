@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll("button"); 
+const buttons = document.querySelectorAll(".group-chat > div:first-of-type button"); 
 
 let currentVoice = null; 
 let selectedVoice = null;
@@ -6,18 +6,55 @@ let selectedVoice = null;
 const apiKey = "AIzaSyBfHfzVGeHHXtSByaUiBNgB9owRtBnn4Ik";
 
 const voices = {
-    "1": { languageCode: "nl-NL", name: "nl-NL-Standard-F" },
-    "2": { languageCode: "nl-NL", name: "nl-NL-Standard-G" },
-    "3": { languageCode: "nl-NL", name: "nl-NL-Chirp3-HD-Achernar" }
+    "v1": { languageCode: "nl-NL", name: "nl-NL-Chirp3-HD-Achernar" },
+    "v2": { languageCode: "nl-NL", name: "nl-NL-Standard-G" },
+    "v3": { languageCode: "nl-NL", name: "nl-NL-Standard-F" },
+    "v4": { languageCode: "nl-NL", name: "nl-NL-Standard-F" },
+    "v5": { languageCode: "nl-NL", name: "nl-NL-Standard-F" },
 };
 
+const voiceStyles = {
+    v1: { pitch: 0.0, speakingRate: 1.0 }, 
+    v2: { pitch: 0.0, speakingRate: 1.0 }, 
+    v3: { pitch: 0.0, speakingRate: 1.0 },   // normal
+    v4: { pitch: 6.0, speakingRate: 1.2 },   // excited
+    v5: { pitch: -8.0, speakingRate: 0.8 }   // angry
+};
+
+function makeExcited(text) {
+    return text
+        .replace(/\./g, "!")
+        .replace(/,/g, "!")
+        + "!!";
+}
+
+function makeAngry(text) {
+    return text
+        .toUpperCase()
+        .replace(/\./g, "...")
+        .replace(/!/g, "!!");
+}
+
+function styleText(text, person) {
+    if (person === "v4") return makeExcited(text);
+    if (person === "v5") return makeAngry(text);
+    return text;
+}
+
 async function speak(text, person) {
-    let voice = voices[person] || voices["1"]; 
+    let voice = voices[person] || voices["v1"];
+    const style = voiceStyles[person] || voiceStyles.v1; 
+
+    const finalText = styleText(text, person);
 
     const request = {
-        input: { text: text },
+        input: { text: finalText },
         voice,
-        audioConfig: { audioEncoding: "MP3" }
+        audioConfig: { 
+            audioEncoding: "MP3", 
+            pitch: style.pitch,
+            speakingRate: style.speakingRate
+        }
     };
 
     const response = await fetch(
@@ -49,12 +86,41 @@ async function speak(text, person) {
     currentVoice.play();
 }
 
-buttons.forEach(el => {
-    el.addEventListener("focus", () => {
-        speak(el.textContent, el.className); 
-    })
+document.addEventListener("focusin", (e) => {
+    if (e.target.matches(".group-chat button")) {
+        speak(e.target.textContent, e.target.className);
+    }
+});
 
-    el.addEventListener("click", () => {
-        speak(el.textContent, el.className); 
-    })
+document.addEventListener("click", (e) => {
+    if (e.target.matches(".group-chat button")) {
+        speak(e.target.textContent, e.target.className);
+    }
+});
+
+const text = document.getElementById("text");
+const chatContainer = document.getElementById("chatContainer");
+const sendButton = document.getElementById("sendButton");
+
+const voiceSettings = document.getElementById("voiceSettings");
+
+sendButton.addEventListener("click", () => {
+    const nieuwText = document.createElement("div"); 
+    nieuwText.classList.add("text-bubble");
+
+    const setting = voiceSettings.querySelector('input[name="setting"]:checked').value;
+
+    nieuwText.innerHTML = `
+        <div class="${setting}"></div>
+        <button aria-hidden="true" tabindex="0" role="button" class="${setting}">${text.value}</button>
+    `
+
+    if (!(text.value == "")) {
+        chatContainer.appendChild(nieuwText); 
+    }
+
+
+    text.value = ""; 
+
+    console.log(text.value);
 })
