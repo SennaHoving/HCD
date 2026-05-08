@@ -21,34 +21,12 @@ const voiceStyles = {
     v5: { pitch: -8.0, speakingRate: 0.8 }   // angry
 };
 
-function makeExcited(text) {
-    return text
-        .replace(/\./g, "!")
-        .replace(/,/g, "!")
-        + "!!";
-}
-
-function makeAngry(text) {
-    return text
-        .toUpperCase()
-        .replace(/\./g, "...")
-        .replace(/!/g, "!!");
-}
-
-function styleText(text, person) {
-    if (person === "v4") return makeExcited(text);
-    if (person === "v5") return makeAngry(text);
-    return text;
-}
-
 async function speak(text, person) {
     let voice = voices[person] || voices["v1"];
     const style = voiceStyles[person] || voiceStyles.v1; 
 
-    const finalText = styleText(text, person);
-
     const request = {
-        input: { text: finalText },
+        input: { text: text },
         voice,
         audioConfig: { 
             audioEncoding: "MP3", 
