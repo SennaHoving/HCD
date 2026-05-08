@@ -1,5 +1,6 @@
 const buttons = document.querySelectorAll("button"); 
 
+let currentVoice = null; 
 let selectedVoice = null;
 
 const apiKey = "AIzaSyBfHfzVGeHHXtSByaUiBNgB9owRtBnn4Ik";
@@ -38,11 +39,21 @@ async function speak(text, person) {
         return;
     }
 
-    const audio = new Audio("data:audio/mp3;base64," + data.audioContent);
-    audio.play();
+    //Zet vorige voice op pauze
+    if (currentVoice) {
+        currentVoice.pause(); 
+        currentVoice.currentTime = 0; 
+    } 
+
+    currentVoice = new Audio("data:audio/mp3;base64," + data.audioContent);
+    currentVoice.play();
 }
 
 buttons.forEach(el => {
+    el.addEventListener("focus", () => {
+        speak(el.textContent, el.className); 
+    })
+
     el.addEventListener("click", () => {
         speak(el.textContent, el.className); 
     })
