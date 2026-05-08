@@ -65,13 +65,13 @@ async function speak(text, person) {
 }
 
 document.addEventListener("focusin", (e) => {
-    if (e.target.matches(".group-chat button")) {
+    if (e.target.matches(".group-chat > div:first-of-type button")) {
         speak(e.target.textContent, e.target.className);
     }
 });
 
 document.addEventListener("click", (e) => {
-    if (e.target.matches(".group-chat button")) {
+    if (e.target.matches(".group-chat > div:first-of-type button")) {
         speak(e.target.textContent, e.target.className);
     }
 });
