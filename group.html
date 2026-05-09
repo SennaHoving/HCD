@@ -10,7 +10,8 @@
 <body>
     <nav>
         <a href="index.html">Terug</a>
-        <h2>Group chat</h2>
+        <h2 tabindex="0">Group chat</h2>
+        <a href="#text" class="skip-link">Skip naar invoerveld</a>
     </nav>
     <div class="group-chat">
         <div id="chatContainer">
@@ -80,25 +81,27 @@
             </div>
         </div>
         <div>
-            <input id="text" type="text">
+            <input id="text" type="text" aria-label="Typ hier uw bericht" placeholder="Typ hier uw bericht...">
             <form id="voiceSettings">
-                <input type="checkbox" tabindex="0">
-                <div>
+                <input type="checkbox" tabindex="0" aria-label="Open emotie settings panel">
+                <fieldset>
+                    <legend>Emotie settings</legend>
+
                     <label>
-                        <input type="radio" value="v3" name="setting" checked>
+                        <input type="radio" value="v3" name="setting" checked aria-label="Normale toon">
                         🙂
                     </label>
                     <label>
-                        <input type="radio" value="v4" name="setting">
+                        <input type="radio" value="v4" name="setting" aria-label="Verheugde toon">
                         🤩
                     </label>
                     <label>
-                        <input type="radio" value="v5" name="setting">
-                        😌
+                        <input type="radio" value="v5" name="setting" aria-label="Slaperige toon">
+                        😴
                     </label>
-                </div>
+                </fieldset>
             </form>
-            <button id="sendButton">></button>
+            <button id="sendButton" aria-label="Verstuur bericht">></button>
         </div>
     </div>
 

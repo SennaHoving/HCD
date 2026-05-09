@@ -9,8 +9,8 @@ const voices = {
     "v1": { languageCode: "nl-NL", name: "nl-NL-Chirp3-HD-Achernar" },
     "v2": { languageCode: "nl-NL", name: "nl-NL-Standard-G" },
     "v3": { languageCode: "nl-NL", name: "nl-NL-Standard-F" },
-    "v4": { languageCode: "nl-NL", name: "nl-NL-Standard-F" },
-    "v5": { languageCode: "nl-NL", name: "nl-NL-Standard-F" },
+    "v4": { languageCode: "nl-NL", name: "nl-NL-Wavenet-C" },
+    "v5": { languageCode: "nl-NL", name: "nl-NL-Wavenet-B" },
 };
 
 const voiceStyles = {
@@ -18,15 +18,39 @@ const voiceStyles = {
     v2: { pitch: 0.0, speakingRate: 1.0 }, 
     v3: { pitch: 0.0, speakingRate: 1.0 },   // normal
     v4: { pitch: 6.0, speakingRate: 1.2 },   // excited
-    v5: { pitch: -8.0, speakingRate: 0.8 }   // angry
+    v5: { pitch: -8.0, speakingRate: 0.8 }   // moe
 };
+
+function styleText(text, person) {
+    if (person === "v4") return makeExcited(text);
+    if (person === "v5") return makeAngry(text);
+    return text;
+}
+
+function makeAngry(text) {
+    return text
+        .toUpperCase()
+        .replace(/\./g, "...")
+        .replace(/,/g, " - ")
+        .replace(/!/g, "!!");
+}
+
+function makeExcited(text) {
+    return text
+        .replace(/\./g, "!")
+        .replace(/,/g, "!")
+        + "!!";
+}
 
 async function speak(text, person) {
     let voice = voices[person] || voices["v1"];
     const style = voiceStyles[person] || voiceStyles.v1; 
 
+    const finalText = styleText(text, person);
+
+
     const request = {
-        input: { text: text },
+        input: { text: finalText },
         voice,
         audioConfig: { 
             audioEncoding: "MP3", 
@@ -105,7 +129,7 @@ sendButton.addEventListener("click", () => {
 
 //Focus tab when opening settings display 
 const toggle = document.querySelector("#voiceSettings input[type='checkbox']");
-const panel = document.querySelector("#voiceSettings > div");
+const panel = document.querySelector("#voiceSettings > fieldset");
 
 panel.addEventListener("focusout", (e) => {
     setTimeout(() => {

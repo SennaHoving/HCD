@@ -159,6 +159,23 @@ body nav h2 {
     font-weight: 400; 
 }
 
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 8px 16px;
+  background: black;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transform: translateY(-100%);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid white;
+}
+
 .group-chat {
     /* display: flex;
     flex-direction: column; 
@@ -248,11 +265,11 @@ body nav h2 {
     appearance: none;
 }
 
-#voiceSettings > div {
+#voiceSettings > fieldset {
     position: absolute; 
     bottom: 0; 
     right: 0; 
-    transform: translateY(-60%); 
+    transform: translateY(-40%); 
     /* transform: translate(-40%, -100%);  */
     font-size: 2em; 
 
@@ -262,17 +279,26 @@ body nav h2 {
 
     display: none;
 
-    padding: 1em; 
+    padding: 1.5em 1em 1em 1em; 
     background-color: white;
     border-radius: 1em;
 }
 
-#voiceSettings > div input {
+#voiceSettings > fieldset legend {
+    color: black; 
+    margin: 0; 
+    font-size: 0.8em;
+
+    position: absolute; 
+    top: 0.5em; 
+}
+
+#voiceSettings > fieldset input {
     border: none; 
     background: none; 
 }
 
-#voiceSettings:has( > input:checked) > div {
+#voiceSettings:has( > input:checked) > fieldset {
     display: flex; 
 }
 
@@ -332,7 +358,8 @@ body nav h2 {
     padding: 0.5em 0.5em;
 
     &:focus {
-        font-size: 1.75em;
+        font-size: 3em;
+        background-color: rgb(50, 50, 50);
     }
 }
 
@@ -375,7 +402,6 @@ body:has(.chats) h2 {
 .chats {
     display: flex;
     flex-direction: column; 
-
 }
 
 .chats a {
@@ -400,4 +426,8 @@ body:has(.chats) h2 {
 
     background-color: grey;
     border-radius: 999px; 
+}
+
+nav a:focus, nav h2:focus, .group-chat > div:nth-of-type(2) input:focus, .group-chat > div:nth-of-type(2) button:focus {
+    border: 5px solid white; 
 }
