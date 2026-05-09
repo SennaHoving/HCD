@@ -79,6 +79,11 @@ Verder nog wat nodige dingen zijn readme bijwerken, en reflectie design principl
 
 ![Concept week 4](/screenshots/week4.png)
 
+## Eindproduct
+Na het voorgang gesprek heb ik het prototype zo aangepast dat het als een echte applicatie zou werken, dus bij het 'tabben' worden de berichten nu direct voorgelezen. En zijn alle elementen niet duidelijk als de gebruiker er met de screenreader doorheen gaat. En ook heb ik toegevoegd dat je nu in het prototype berichten kan sturen en daar (voor zo ver met de google text to speech api kan) emoties aan mee kan geven.  
+
+![Eindproduct](/screenshots/eindproduct.png)
+
 ## Reflectie design principles
 ### Study Situation
 Voor het eerste principle het ik tijdens dit project niet alle contexten in gedachte gehouden, maar juist de focus gelegd op een context, namelijk die van Berend. Hiervoor was het vooral nuttig om tijdens de test momenten te kunnen zien hoe Berend met het web omging. Hierbij heb ik vooral gemerkt dat Berend natuurlijk veel gebruikt maakt van zijn screenreader, maar daardoor kreeg ik pas echt door dat hij echt maar met één aspect op een website tegelijker tijd bezig kan zijn en dat hij alles na waar de focus nu ligt niet doorheeft.
